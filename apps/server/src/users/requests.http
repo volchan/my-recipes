@@ -1,0 +1,46 @@
+### Creates a user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "toto+4@gmail.com",
+  "password": "password"
+}
+
+### Signs a user in
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "toto+4@gmail.com",
+  "password": "password"
+}
+
+### Signs a user out
+DELETE  http://localhost:3000/auth/signout
+Content-Type: application/json
+
+### Get current user
+GET http://localhost:3000/auth/me
+Content-Type: application/json
+
+### Finds a User with an ID
+GET http://localhost:3000/auth/27ebf059-39f0-4e51-9b4e-f8a16f39f229
+Content-Type: application/json
+
+### Finds all User with a given email
+GET http://localhost:3000/auth?email=toto%2B1%40gmail.com
+Content-Type: application/json
+
+### Updates a User
+PATCH http://localhost:3000/auth/27ebf059-39f0-4e51-9b4e-f8a16f39f229
+Content-Type: application/json
+
+{
+  "email": "toto+1@gmail.com"
+}
+
+
+### Deletes a User
+DELETE http://localhost:3000/auth/aef9e7fc-e3ec-4d5a-adc0-f4201ce893f3
+Content-Type: application/json
