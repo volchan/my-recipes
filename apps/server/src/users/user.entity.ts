@@ -21,6 +21,10 @@ export class User {
   email: string;
 
   @Column()
+  @Unique(['username'])
+  username: string;
+
+  @Column()
   password: string;
 
   @CreateDateColumn({ name: 'createdAt', type: 'timestamp with time zone' })
