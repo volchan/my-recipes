@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
+import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 
 const scrypt = promisify(_scrypt);
@@ -9,12 +10,13 @@ const scrypt = promisify(_scrypt);
 export class AuthService {
   constructor(private userService: UsersService) {}
 
-  async signup(email: string, password: string) {
+  async signup(body: CreateUserDto) {
+    const { password, email, username } = body;
     const salt = randomBytes(8).toString('hex');
     const hash = await this.generateHash(password, salt);
     const hashedPassword = `${salt}.${hash}`;
 
-    return this.userService.create(email, hashedPassword);
+    return this.userService.create(email, username, hashedPassword);
   }
 
   async signin(email: string, password: string) {

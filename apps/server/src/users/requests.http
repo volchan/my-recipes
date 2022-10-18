@@ -3,7 +3,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "toto+4@gmail.com",
+  "email": "toto@gmail.com",
+  "username": "toto",
   "password": "password"
 }
 
@@ -12,7 +13,7 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-  "email": "toto+4@gmail.com",
+  "email": "toto@gmail.com",
   "password": "password"
 }
 
